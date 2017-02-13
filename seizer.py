@@ -6,6 +6,7 @@ import subprocess
 import webbrowser
 import platform
 import ConfigParser
+import pprint
 
 known_browsers = [
 'firefox',
@@ -13,6 +14,7 @@ known_browsers = [
 'chromium-browser',
 'iexplore',
 'safari',
+'midori',
 'webbrowser-app',
 'MicrosoftEdge.exe',
 'iexplore.exe'
@@ -138,7 +140,7 @@ def main():
 	url = None
 	config = read_config()
 
-	print "Browsers installed:", list_installed_browsers()
+	print "Browsers installed:\n", pprint.pprint(list_installed_browsers())
 
 	print sys.argv
 
@@ -213,6 +215,6 @@ def installed_browsers_chooser():
 
 if __name__ == '__main__':
 	main()
-	print "=> Hit ENTER to close this window !"
-	raw_input()
+#	print "=> Hit ENTER to close this window !"
+#	raw_input()
 
