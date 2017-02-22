@@ -113,8 +113,18 @@ def search_running_browser():
 				#if cmdline_tokens.index(found_browser) != ( len(cmdline_tokens) - 2 ):
 				#	continue
 
-				running_browsers[ found_browser ] = [execpath_no_spaces]
-				print found_browser, '=>', execpath_no_spaces #, conc_cmdline
+				if running_on == 'Linux' :
+					running_browsers[ found_browser ] = [execpath_no_spaces]
+				else :
+					spaced_tokens = conc_cmdline.split(' ')
+					browser_path =   ' '.join(spaced_tokens)
+
+					if (spaced_tokens[-1].startswith('http')):
+						browser_path = ' '.join(spaced_tokens[:-1])
+
+					running_browsers[ found_browser ] = [  browser_path ]
+
+				print found_browser, '=>', running_browsers[found_browser] #, conc_cmdline
 
 				break
 
@@ -214,7 +224,10 @@ def installed_browsers_chooser():
 	return chosen_browser
 
 if __name__ == '__main__':
-	main()
-#	print "=> Hit ENTER to close this window !"
-#	raw_input()
+	try:
+		main()
+	except Exception as e:
+		print "Something wrong happened! => ",e
+	# print "=> Hit ENTER to close this window !"
+	# raw_input()
 
