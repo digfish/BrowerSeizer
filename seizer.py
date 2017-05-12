@@ -17,7 +17,9 @@ known_browsers = [
 'midori',
 'webbrowser-app',
 'MicrosoftEdge.exe',
-'iexplore.exe'
+'iexplore.exe',
+'vivaldi',
+'opera'
 ]
 
 running_on = platform.system()
