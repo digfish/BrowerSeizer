@@ -1,4 +1,5 @@
-.*
+.project
+.pydevproject
 *.psproj
 set-seizer-as-default-app.reg
 stest.py
