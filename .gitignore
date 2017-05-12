@@ -1,0 +1,7 @@
+.*
+*.psproj
+set-seizer-as-default-app.reg
+stest.py
+winregtest.py
+BrowserSeizer.iml
+.idea/
