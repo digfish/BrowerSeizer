@@ -4,11 +4,11 @@ Type=Application
 Name=Browser Seizer
 GenericName=Browser Seizer
 Comment=Seize the fact that you have an already running browser
-Icon=chooser
-Exec=seizer %u
+Icon=4C5A_BrowserSelect.0
+Exec=python /home/sam/bin/seizer.py %u
 NoDisplay=false
 Categories=Network;WebBrowser;
-Keywords=Internet;WWW;Browser;Web;Explorer
-MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;x-scheme-handler/chrome;video/webm;application/x-xpinstall;
-StartupNotify=true
-Terminal=true
+MimeType=text/html;text/xml;application/xhtml_xml;image/webp;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;
+StartupNotify=false
+Terminal=false
+
