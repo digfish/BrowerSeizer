@@ -16,7 +16,7 @@ known_browsers = [
 'safari',
 'midori',
 'webbrowser-app',
-'MicrosoftEdge.exe',
+'MicrosoftEdge',
 'iexplore.exe',
 'vivaldi',
 'opera'
@@ -165,6 +165,7 @@ def main():
 
 	running_browsers = search_running_browser()
 
+	found_browser = None
 	print running_browsers
 	# if a running browser was found...
 	if len (running_browsers) > 0:
@@ -202,8 +203,24 @@ def main():
 			print "Using the browser selector to choose the running browser..."
 			command = [ browser_selector_path ,  url]
 
+	if found_browser == 'chrome' or found_browser=='MicrosoftEdge':
+		command = realign_cmdline(command)
 	print "====>" , command
 	subprocess.call(command)
+
+# strip all command line options that start with --
+def realign_cmdline(cmdline):
+	for pos,token in enumerate(cmdline):
+		idx = token.find('-')
+		if  token != -1:
+			stripped_token = token[0:idx-1]
+			option_str = token[idx:len(token)]
+			cmdline[pos] = stripped_token
+			cmdline.insert(pos+1,option_str)
+			break
+
+	return cmdline
+
 
 def installed_browsers_chooser():
 	browsers_list = list_installed_browsers()
